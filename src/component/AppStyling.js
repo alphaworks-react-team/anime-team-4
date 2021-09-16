@@ -6,4 +6,6 @@ display: flex;
 flex-flow: column wrap;
 background-color: lightgray;
 `
+
+
 export default AppStyling;
