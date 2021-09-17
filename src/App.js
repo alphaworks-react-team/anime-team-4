@@ -5,15 +5,21 @@ import AppStyling from "./component/AppStyling";
 import Nav from "./component/Nav";
 import SearchBar from "./component/SearchBar";
 import utils from "./utils/animeAPI.js";
+import Home from "./Pages/Home.js";
+import Search from "./Pages/Search.js";
 
 function App() {
   const [inputValue, setInputValue] = useState("");
   const [trending, setTrending] = useState([]);
 
   useEffect(() => {
-    utils.AnimeTrending().then((res) => {
-      setTrending([]);
-    });
+    utils
+      .AnimeTrending()
+      .then((res) => {
+        console.log("TRENDING ===>", res);
+        setTrending([...trending, ...res]);
+      })
+      .catch((err) => console.log(err));
   }, []);
 
   const onChange = (e) => {
@@ -35,6 +41,15 @@ function App() {
         <Nav>
           <SearchBar onChange={onChange} onClick={onClick} />
         </Nav>
+
+        <Switch>
+          <Route path="/home">
+            <Home trending={trending} />
+          </Route>
+          <Route path="/search">
+            <Search />
+          </Route>
+        </Switch>
       </Router>
     </AppStyling>
   );

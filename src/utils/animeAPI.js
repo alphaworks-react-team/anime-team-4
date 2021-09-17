@@ -5,10 +5,9 @@ const utils = {
     return new Promise(async (resolve, reject) => {
       try {
         const request = await axios.get(
-          "https://kitsu.io/api/edge/anime?trending"
+          "https://kitsu.io/api/edge/trending/anime"
         );
-        console.log("TRENDING API ===>", request.data);
-        resolve(request.data);
+        resolve(request.data.data);
       } catch (err) {
         reject(err);
       }
@@ -26,8 +25,7 @@ const utils = {
         reject(err);
       }
     });
-  }
+  },
 };
-
 
 export default utils;
