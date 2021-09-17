@@ -1,43 +1,34 @@
-import { useEffect, useState } from 'react';
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import { useEffect, useState } from "react";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
-
-import AppStyling from './component/AppStyling';
-import Nav from './component/Nav';
+import AppStyling from "./component/AppStyling";
+import Nav from "./component/Nav";
 import SearchBar from "./component/SearchBar";
-import AnimeTrending from './utils/animeAPI.js';
-import CategoryRequest from './utils/searchAPI';
-
-
-
+import utils from "./utils/animeAPI.js";
 
 function App() {
-
-  const [inputValue, setInputValue] = useState('')
-  const [trending, setTrending] = useState([])
-
+  const [inputValue, setInputValue] = useState("");
+  const [trending, setTrending] = useState([]);
 
   useEffect(() => {
-    AnimeTrending().then((res) => {
-      setTrending([
-        
-      ])
+    utils.AnimeTrending().then((res) => {
+      setTrending([]);
     });
-    
-  }, [])
-  
+  }, []);
 
   const onChange = (e) => {
-    setInputValue(e.target.value)
-  }
+    setInputValue(e.target.value);
+  };
 
   const onClick = (e) => {
-    e.preventDefault()
-    CategoryRequest(inputValue)
-  }
+    e.preventDefault();
+    if (inputValue === "") {
+      alert("Enter Text");
+    } else {
+      utils.SearchAPI(inputValue);
+    }
+  };
 
-  
-  
   return (
     <AppStyling>
       <Router>
