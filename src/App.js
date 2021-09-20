@@ -1,35 +1,36 @@
-import { useEffect, useState } from "react";
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import { useEffect, useState } from 'react';
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 
-import AppStyling from "./component/AppStyling";
-import Nav from "./component/Nav";
-import SearchBar from "./component/SearchBar";
-import utils from "./utils/animeAPI.js";
-import Home from "./Pages/Home.js";
-import Search from "./Pages/Search.js";
+import AppStyling from './component/AppStyling';
+import Nav from './component/Nav';
+import SearchBar from './component/SearchBar';
+import utils from './utils/animeAPI.js';
+import Home from './Pages/Home.js';
+import Search from './Pages/Search.js';
+import TrendingCard from './component/TrendingCard.js';
 
 function App() {
-  const [inputValue, setInputValue] = useState("");
+  const [inputValue, setInputValue] = useState('');
   const [trending, setTrending] = useState([]);
 
   useEffect(() => {
     utils
       .AnimeTrending()
-      .then((res) => {
-        console.log("TRENDING ===>", res);
+      .then(res => {
+        console.log('TRENDING ===>', res);
         setTrending([...trending, ...res]);
       })
-      .catch((err) => console.log(err));
+      .catch(err => console.log(err));
   }, []);
 
-  const onChange = (e) => {
+  const onChange = e => {
     setInputValue(e.target.value);
   };
 
-  const onClick = (e) => {
+  const onClick = e => {
     e.preventDefault();
-    if (inputValue === "") {
-      alert("Enter Text");
+    if (inputValue === '') {
+      alert('Enter Text');
     } else {
       utils.SearchAPI(inputValue);
     }
@@ -43,10 +44,12 @@ function App() {
         </Nav>
 
         <Switch>
-          <Route path="/home">
-            <Home trending={trending} />
+          <Route path='/'>
+            <Home>
+              <TrendingCard trending={trending} />
+            </Home>
           </Route>
-          <Route path="/search">
+          <Route path='/search'>
             <Search />
           </Route>
         </Switch>
