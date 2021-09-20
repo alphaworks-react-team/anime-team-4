@@ -14,7 +14,6 @@ const TrendCard = styled.div`
   width: 300px;
   height: 600px;
 
-
   display: flex;
   flex-flow: wrap;
   align-content: space-between;

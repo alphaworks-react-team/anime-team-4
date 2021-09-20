@@ -20,7 +20,7 @@ const utils = {
           `https://kitsu.io/api/edge/anime?filter[text]=${inputValue}`
         );
         console.log("Search ===>", request.data);
-        resolve(request);
+        resolve(request.data.data);
       } catch (err) {
         reject(err);
       }

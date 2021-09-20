@@ -8,10 +8,12 @@ import utils from './utils/animeAPI.js';
 import Home from './Pages/Home.js';
 import Search from './Pages/Search.js';
 import TrendingCard from './component/TrendingCard.js';
+import SearchCard from './component/SearchCard';
 
 function App() {
   const [inputValue, setInputValue] = useState('');
   const [trending, setTrending] = useState([]);
+  const [search, setSearch] = useState([]);
 
   useEffect(() => {
     utils
@@ -32,7 +34,12 @@ function App() {
     if (inputValue === '') {
       alert('Enter Text');
     } else {
-      utils.SearchAPI(inputValue);
+      utils
+        .SearchAPI(inputValue)
+        .then(res => {
+          setSearch([...search, ...res]);
+        })
+        .catch(err => console.log(err));
     }
   };
 
@@ -42,15 +49,16 @@ function App() {
         <Nav>
           <SearchBar onChange={onChange} onClick={onClick} />
         </Nav>
-
         <Switch>
-          <Route path='/'>
+          <Route exact path='/'>
             <Home>
               <TrendingCard trending={trending} />
             </Home>
           </Route>
           <Route path='/search'>
-            <Search />
+            <Search>
+              <SearchCard search={search} />
+            </Search>
           </Route>
         </Switch>
       </Router>

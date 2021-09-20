@@ -1,10 +1,15 @@
 import React from 'react'
+import styled from 'styled-components'
 
-const Search = () => {
+const SearchStyles=styled.div`
+
+`
+
+const Search = (props) => {
   return (
-    <div>
-      
-    </div>
+    <SearchStyles>
+      {props.children}
+    </SearchStyles>
   )
 }
 
