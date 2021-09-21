@@ -26,6 +26,18 @@ const utils = {
       }
     });
   },
+  CategoryAPI: () => {
+    return new Promise(async (resolve, reject) => {
+      try {
+        const request = await axios.get(
+          "https://kitsu.io/api/edge/categories"
+        );
+        resolve(request.data.data)
+      } catch(err) {
+        reject(err);
+      }
+    });
+  }
 };
 
 export default utils;
