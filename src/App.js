@@ -9,8 +9,9 @@ import Home from "./Pages/Home.js";
 import Search from "./Pages/Search.js";
 import TrendingCard from "./component/TrendingCard.js";
 import SearchCard from "./component/SearchCard";
-import CategoryLinks from "./component/CategoryLinks";
 import Category from "./Pages/Category";
+import DropDown from "./component/DropDown";
+import HomeBtn from "./component/HomeBtn.js"
 
 function App() {
   const [inputValue, setInputValue] = useState("");
@@ -59,12 +60,13 @@ function App() {
     <AppStyling>
       <Router>
         <Nav>
+          <HomeBtn/>
           <SearchBar onChange={onChange} onClick={onClick} />
+          <DropDown category={category} />
         </Nav>
         <Switch>
           <Route exact path="/">
             <Home>
-              <CategoryLinks category={category} />
               <TrendingCard trending={trending} />
             </Home>
           </Route>
