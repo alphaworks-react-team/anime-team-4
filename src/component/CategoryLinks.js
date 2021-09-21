@@ -11,7 +11,7 @@ const CategoryLinks = (props) => {
     <Styled>
       {props.category.map((item, index) => (
         <div key={index}>
-          <a href={`/category?id=${item.id}`} alt="">
+          <a href={`/category/${item.id}`} alt="">
             {item.attributes.title}
           </a>
         </div>
