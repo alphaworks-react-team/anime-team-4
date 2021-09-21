@@ -10,7 +10,7 @@ import Search from "./Pages/Search.js";
 import TrendingCard from "./component/TrendingCard.js";
 import SearchCard from "./component/SearchCard";
 import CategoryLinks from "./component/CategoryLinks";
-import Category from './Pages/Category';
+import Category from "./Pages/Category";
 
 function App() {
   const [inputValue, setInputValue] = useState("");
@@ -68,7 +68,7 @@ function App() {
               <TrendingCard trending={trending} />
             </Home>
           </Route>
-          <Route path='/category'>
+          <Route path="/category/:id">
             <Category />
           </Route>
           <Route path="/search">
