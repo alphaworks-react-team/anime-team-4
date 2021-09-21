@@ -3,7 +3,7 @@ import styled from "styled-components";
 
 const Styled = styled.div`
   display: flex;
-  flex-flow: wrap;
+  flex-flow: column wrap;
 `;
 
 const CategoryLinks = (props) => {
