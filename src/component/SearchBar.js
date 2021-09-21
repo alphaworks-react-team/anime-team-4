@@ -1,7 +1,7 @@
-import React from 'react';
-import styled from 'styled-components';
-import { ImSearch } from 'react-icons/im';
-// import { useHistory } from 'react-router';
+import React from "react";
+import styled from "styled-components";
+import { ImSearch } from "react-icons/im";
+import { useHistory } from "react-router";
 
 const SearchContainer = styled.div`
   height: 45px;
@@ -42,18 +42,24 @@ const Search = styled.input`
   font-size: 20px;
 `;
 
-const SearchBar = props => {
-  // const history = useHistory();
-  // onClick={() => history.push('/search')}
+const SearchBar = (props) => {
+  const history = useHistory();
   return (
-    <form>
+    <form
+      onSubmit={(e) => {
+        e.preventDefault();
+        props.onClick();
+        history.push("/search");
+      }}
+    >
       <SearchContainer>
-          <Button onClick={props.onClick}>
-            <ImSearch />
-          </Button>
+        <Button>
+          <ImSearch />
+        </Button>
         <Search
           onChange={props.onChange}
-          placeholder='What are you searching for?'></Search>
+          placeholder="What are you searching for?"
+        ></Search>
       </SearchContainer>
     </form>
   );

@@ -30,14 +30,14 @@ function App() {
   };
 
   const onClick = e => {
-    e.preventDefault();
+    
     if (inputValue === '') {
       alert('Enter Text');
     } else {
       utils
         .SearchAPI(inputValue)
         .then(res => {
-          setSearch([...search, ...res]);
+          setSearch([...res]);
         })
         .catch(err => console.log(err));
     }
