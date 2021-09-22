@@ -15,18 +15,37 @@ const MenuBtn = styled.button`
   background: none;
   border: none;
   font-size: 40px;
+  color: rgb(237, 246, 249, 0.9);
 
   :hover {
-    background-color: rgb(0, 0, 0, 0.2);
+    color: rgb(230, 57, 70);
   }
 `;
 
+const MenuPosition=styled.div`
+display: flex;
+justify-content: center;
+`
+
 const Menu = styled.div`
+  text-align: center;
+  font-size: 20px;
+
   position: absolute;
-  padding: 0.3rem;
-  background: white;
-  color: white;
-  border: solid black;
+  padding: 1rem;
+  letter-spacing: 0.05rem;
+  border-radius: 5px;
+  background: rgb(29, 53, 87);
+
+  a:visited,
+  a:link,
+  a:active {
+    text-decoration: none;
+    color: rgb(237, 246, 249, 0.9);
+    :hover {
+      color: rgb(230, 57, 70);
+    }
+  }
 `;
 
 const DropDown = ({ category }) => {
@@ -38,9 +57,11 @@ const DropDown = ({ category }) => {
         <FiMenu />
       </MenuBtn>
       {value === true ? (
-        <Menu>
-          <CategoryLinks category={category} />
-        </Menu>
+        <MenuPosition>
+          <Menu>
+            <CategoryLinks category={category} />
+          </Menu>
+        </MenuPosition>
       ) : null}
     </DropContainer>
   );
