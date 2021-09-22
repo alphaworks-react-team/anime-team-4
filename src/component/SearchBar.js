@@ -16,7 +16,7 @@ const Button = styled.button`
   width: 40px;
 
   font-size: 20px;
-  background-color: white;
+  background-color: rgb(237, 246, 249, 0.9);
   color: gray;
 
   display: flex;
@@ -28,7 +28,7 @@ const Button = styled.button`
 
   &:hover {
     cursor: pointer;
-    color: black;
+    color: rgb(230, 57, 70);
   }
 `;
 
@@ -40,6 +40,7 @@ const Search = styled.input`
   border-radius: 0 5px 5px 0;
   outline: none;
   font-size: 20px;
+  background-color: rgb(237, 246, 249, 0.9);
 `;
 
 const SearchBar = (props) => {

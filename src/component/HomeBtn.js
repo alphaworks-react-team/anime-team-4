@@ -5,14 +5,19 @@ import { BrowserRouter as Link } from "react-router-dom";
 import { useHistory } from "react-router";
 
 const HomeButton = styled.button`
-display: flex;
-justify-content: center;
-align-items: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: rgb(237, 246, 249, 0.9);
 
-font-size: 40px;
-background: none;
-border: none;
-`
+  font-size: 40px;
+  background: none;
+  border: none;
+
+  :hover {
+    color: rgb(230, 57, 70);
+  }
+`;
 
 const HomeBtn = () => {
 

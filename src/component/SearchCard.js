@@ -4,16 +4,26 @@ import { AiFillHeart } from "react-icons/ai";
 import { AiFillStar } from "react-icons/ai";
 
 const Container = styled.div`
-  width: 90vw;
   display: flex;
-  flex-flow: column wrap;
-  margin-top: 1rem;
+  flex-flow: column;
+  justify-content: center;
+  align-items: center;
+`;
+
+const Wrapper = styled.div`
+  width: 60vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem;
+
+  background-color: rgb(237, 246, 249, 0.9);
 `;
 
 const SearchCards = styled.div`
   display: flex;
   flex-flow: row;
-  margin-bottom: 1rem;
+  border-radius: 5px;
 `;
 
 const InfoCard = styled.div`
@@ -25,7 +35,7 @@ const InfoCard = styled.div`
 `;
 const Title = styled.h1`
   font-weight: bold;
-  font-size: 45px;
+  font-size: 40px;
 `;
 
 const AverageRating = styled.div`
@@ -48,31 +58,35 @@ const OverallRank = styled.div`
 `;
 
 const Description = styled.div`
+  height: 150px;
   font-size: 20px;
+  overflow: hidden;
 `;
 
 const SearchCard = (props) => {
   return (
     <Container>
       {props.search.map((item, index) => (
-        <SearchCards key={index}>
-          <img src={item.attributes.posterImage.medium} />
-          <InfoCard>
-            <Title>
-              {item.attributes.canonicalTitle} ({item.attributes.ageRating})
-            </Title>
-            <AverageRating>{item.attributes.averageRating}%</AverageRating>
-            <PopRank>
-              <AiFillHeart style={{ color: "red" }} />#
-              {item.attributes.popularityRank} Most Popular
-            </PopRank>
-            <OverallRank>
-              <AiFillStar style={{ color: "yellow" }} />#
-              {item.attributes.ratingRank} Highest Rated
-            </OverallRank>
-            <Description>{item.attributes.description}</Description>
-          </InfoCard>
-        </SearchCards>
+        <Wrapper>
+          <SearchCards key={index}>
+            <img src={item.attributes.posterImage.medium} />
+            <InfoCard>
+              <Title>
+                {item.attributes.canonicalTitle} ({item.attributes.ageRating})
+              </Title>
+              <AverageRating>{item.attributes.averageRating}%</AverageRating>
+              <PopRank>
+                <AiFillHeart style={{ color: 'red' }} />#
+                {item.attributes.popularityRank} Most Popular
+              </PopRank>
+              <OverallRank>
+                <AiFillStar style={{ color: 'yellow' }} />#
+                {item.attributes.ratingRank} Highest Rated
+              </OverallRank>
+              <Description>{item.attributes.description}</Description>
+            </InfoCard>
+          </SearchCards>
+        </Wrapper>
       ))}
     </Container>
   );
