@@ -1,8 +1,7 @@
-import { getQueriesForElement } from '@testing-library/dom';
-import React from 'react';
-import styled from 'styled-components';
-import { AiFillHeart } from 'react-icons/ai';
-import { AiFillStar } from 'react-icons/ai';
+import React, { useState, useEffect } from "react";
+import styled from "styled-components";
+import { AiFillHeart } from "react-icons/ai";
+import { AiFillStar } from "react-icons/ai";
 
 const Container = styled.div`
   display: flex;
@@ -22,7 +21,6 @@ const TrendCard = styled.div`
   margin-top: 2rem;
   margin-bottom: 2.5rem;
 `;
-
 const TrendDescripion = styled.div`
   width: 300px;
   height: 150px;
@@ -30,46 +28,58 @@ const TrendDescripion = styled.div`
   overflow: scroll;
 `;
 
+const Modal = styled.div``;
+
 const InfoCard = styled.div`
   width: 285px;
-
   display: flex;
   flex-flow: column;
   justify-content: space-between;
   margin: 0.5rem;
 `;
 
-const Title=styled.div`
-font-weight: bold;
-`
+const Title = styled.div`
+  font-weight: bold;
+`;
 const AgeRating = styled.div`
-color: green;
+  color: green;
 `;
 
-const TrendingCard = props => {
+const TrendingCard = (props) => {
+  const [show, setShow] = useState(false);
+
   return (
     <Container>
-      {props.trending.map((item, index) => (
-        <TrendCard key={index}>
-          <img src={item.attributes.posterImage.small} alt='' />
-          <InfoCard>
-            <Title>
-              {item.attributes.canonicalTitle} ({item.attributes.ageRating})
-            </Title>
-            <AgeRating>{item.attributes.averageRating}%</AgeRating>
-            <div>
-              <AiFillHeart style={{ color: 'red' }} />#
-              {item.attributes.popularityRank} Most Popular
-            </div>
-            <div>
-              <AiFillStar style={{ color: 'yellow' }} />#
-              {item.attributes.ratingRank} Highest Rated
-            </div>
-          </InfoCard>
-          Description
-          <TrendDescripion>{item.attributes.description}</TrendDescripion>
+      <div>
+        <TrendCard>
+          <img
+            onMouseEnter={() => setShow(true)}
+            onMouseLeave={() => setShow(false)}
+            src={props.src}
+            alt=""
+          />
+          {show && (
+            <Modal>
+              <InfoCard>
+                <Title>
+                  {props.title} ({props.ageRating})
+                </Title>
+                <AgeRating>{props.avgRating}%</AgeRating>
+                <div>
+                  <AiFillHeart style={{ color: "red" }} />#{props.popularity}{" "}
+                  Most Popular
+                </div>
+                <div>
+                  <AiFillStar style={{ color: "yellow" }} />#{props.rating}{" "}
+                  Highest Rated
+                </div>
+              </InfoCard>
+              Description
+              <TrendDescripion>{props.description}</TrendDescripion>
+            </Modal>
+          )}
         </TrendCard>
-      ))}
+      </div>
     </Container>
   );
 };

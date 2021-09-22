@@ -7,11 +7,12 @@ import SearchBar from "./component/SearchBar";
 import utils from "./utils/animeAPI.js";
 import Home from "./Pages/Home.js";
 import Search from "./Pages/Search.js";
-import TrendingCard from "./component/TrendingCard.js";
+// import TrendingCard from "./component/TrendingCard.js";
 import SearchCard from "./component/SearchCard";
 import Category from "./Pages/Category";
 import DropDown from "./component/DropDown";
 import HomeBtn from "./component/HomeBtn.js"
+import TrendingContainer from './component/TrendingContainer';
 
 function App() {
   const [inputValue, setInputValue] = useState("");
@@ -46,6 +47,7 @@ function App() {
   const onClick = (e) => {
     if (inputValue === "") {
       alert("Enter Text");
+      return
     } else {
       utils
         .SearchAPI(inputValue)
@@ -60,14 +62,14 @@ function App() {
     <AppStyling>
       <Router>
         <Nav>
-          <HomeBtn/>
+          <HomeBtn />
           <SearchBar onChange={onChange} onClick={onClick} />
           <DropDown category={category} />
         </Nav>
         <Switch>
           <Route exact path="/">
             <Home>
-              <TrendingCard trending={trending} />
+              <TrendingContainer trending={trending} />
             </Home>
           </Route>
           <Route path="/category/:id">
