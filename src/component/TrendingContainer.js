@@ -16,6 +16,7 @@ const TrendingContainer = (props) => {
       {props.trending.map((item, index) => (
         <TrendingCard
           key={index}
+          id={item.id}
           src={item.attributes.posterImage.small}
           title={item.attributes.canonicalTitle}
           ageRating={item.attributes.ageRating}

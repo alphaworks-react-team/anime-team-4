@@ -68,6 +68,8 @@ const Description = styled.div`
   overflow: hidden;
 `;
 
+const A = styled.a``;
+
 const Category = () => {
   const [category, setCategory] = useState([]);
   const [loading, setLoading] = useState(false);
@@ -112,7 +114,9 @@ const Category = () => {
       {category.map((item, index) => (
         <Wrapper>
           <CategoryCards key={index}>
+            <A href={`/anime/${id}`}>
             <img src={item.attributes.posterImage.small} alt='' />
+            </A>
             <InfoCard>
               <Title>
                 {item.attributes.canonicalTitle} ({item.attributes.ageRating})

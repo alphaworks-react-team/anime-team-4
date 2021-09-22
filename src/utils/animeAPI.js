@@ -33,9 +33,9 @@ const utils = {
           `https://kitsu.io/api/edge/categories?page[limit]=229`
         );
         const allCategoryArr = request.data.data;
-        const mainCategory = allCategoryArr.filter(category => {
+        const mainCategory = allCategoryArr.filter((category) => {
           return category.attributes.childCount > 3;
-        })
+        });
         resolve(mainCategory);
       } catch (err) {
         reject(err);
@@ -48,6 +48,19 @@ const utils = {
       try {
         const request = await axios.get(
           `https://kitsu.io/api/edge/categories/${id}/anime?page[limit]=10&page[offset]=${offset}`
+        );
+        resolve(request.data.data);
+      } catch (err) {
+        reject(err);
+      }
+    });
+  },
+
+  AnimeByID: (id) => {
+    return new Promise(async (resolve, reject) => {
+      try {
+        const request = await axios.get(
+          `https://kitsu.io/api/edge/anime/${id}`
         );
         resolve(request.data.data);
       } catch (err) {

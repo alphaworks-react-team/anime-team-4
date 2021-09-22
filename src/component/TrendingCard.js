@@ -70,10 +70,8 @@ const Img = styled.img`
   width: 280px;
 `;
 
-const ImgHover = styled.div`
-  :hover {
-    color: rgba(10, 10, 10, 0.5);
-  }
+const A = styled.a`
+  
 `;
 
 const Popular = styled.div`
@@ -101,14 +99,14 @@ const TrendingCard = (props) => {
     <Container>
       <Div>
         <CardWrapper>
-          <ImgHover>
+          <A href={`/anime/${props.id}`}>
             <Img
               onMouseEnter={moustEnter}
               onMouseLeave={() => setShow(false)}
               src={props.src}
               alt=""
             />
-          </ImgHover>
+          </A>
           {show && (
             <Modal>
               <Info>

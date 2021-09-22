@@ -13,6 +13,7 @@ import Category from "./Pages/Category";
 import DropDown from "./component/DropDown";
 import HomeBtn from "./component/HomeBtn.js"
 import TrendingContainer from './component/TrendingContainer';
+import AnimePage from './Pages/AnimePage.js'
 
 function App() {
 
@@ -76,6 +77,9 @@ function App() {
           </Route>
           <Route path="/category/:id">
             <Category />
+          </Route>
+          <Route path="/anime/:id">
+            <AnimePage />
           </Route>
           <Route path="/search">
             <Search>
