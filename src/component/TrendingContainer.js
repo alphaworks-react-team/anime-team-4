@@ -1,10 +1,18 @@
 import React from 'react'
-
+import styled from 'styled-components';
 import TrendingCard from './TrendingCard.js'
+
+const Div = styled.div`
+  width: 60vw;
+  display: flex;
+
+  flex-flow: row wrap;
+  justify-content: center;
+`;
 
 const TrendingContainer = (props) => {
   return (
-    <div>
+    <Div>
       {props.trending.map((item, index) => (
         <TrendingCard
           key={index}
@@ -17,7 +25,7 @@ const TrendingContainer = (props) => {
           description={item.attributes.description}
         />
       ))}
-    </div>
+    </Div>
   );
 }
 

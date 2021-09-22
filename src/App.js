@@ -15,6 +15,7 @@ import HomeBtn from "./component/HomeBtn.js"
 import TrendingContainer from './component/TrendingContainer';
 
 function App() {
+
   const [inputValue, setInputValue] = useState("");
   const [trending, setTrending] = useState([]);
   const [search, setSearch] = useState([]);
@@ -29,6 +30,8 @@ function App() {
       })
       .catch((err) => console.log(err));
   }, []);
+  
+
 
   useEffect(() => {
     utils
@@ -39,7 +42,6 @@ function App() {
       })
       .catch((err) => console.log(err));
   }, []);
-
   const onChange = (e) => {
     setInputValue(e.target.value);
   };

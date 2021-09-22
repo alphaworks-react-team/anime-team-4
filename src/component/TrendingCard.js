@@ -5,33 +5,48 @@ import { AiFillStar } from "react-icons/ai";
 
 const Container = styled.div`
   display: flex;
-  flex-flow: wrap;
-  justify-content: space-around;
+  flex-flow: row;
+  width: 280px;
+  border-radius: 5px;
+  margin: 10px;
+  align-items: center;
+
+  // justify-content: space-around;
 `;
 
-const TrendCard = styled.div`
-  width: 300px;
-  height: 600px;
 
+const Div = styled.div`
+  
+`
+
+
+const CardWrapper = styled.div`
   display: flex;
+  width: 280px;
   flex-flow: wrap;
-  align-content: space-between;
+
   justify-content: center;
+  align-items: center;
 
   margin-top: 2rem;
   margin-bottom: 2.5rem;
 `;
-const TrendDescripion = styled.div`
-  width: 300px;
-  height: 150px;
-
-  overflow: scroll;
+const Description = styled.div`
+  width: 280px;
+  height: 270px;
+  padding: 10px;
+  overflow: hidden;
 `;
 
-const Modal = styled.div``;
+const Modal = styled.div`
+  background-color: white;
+  position: absolute;
+  border-radius: 5px;
+  transform: translate(310px)
+`;
 
-const InfoCard = styled.div`
-  width: 285px;
+const Info = styled.div`
+  
   display: flex;
   flex-flow: column;
   justify-content: space-between;
@@ -40,46 +55,82 @@ const InfoCard = styled.div`
 
 const Title = styled.div`
   font-weight: bold;
+  font-size:20px
+  width: 280px;
 `;
-const AgeRating = styled.div`
+const AvgRating = styled.div`
   color: green;
+  font-size: 15px;
+  padding-top: 10px;
+  padding-bottom: 10px;
 `;
+
+const Img = styled.img`
+  border-radius: 5px;
+  width: 280px;
+`;
+
+const ImgHover = styled.div`
+  :hover {
+    color: rgba(10, 10, 10, 0.5);
+  }
+`;
+
+const Popular = styled.div`
+
+`
+
+
+const Highest = styled.div``;
+
+
+
+
 
 const TrendingCard = (props) => {
   const [show, setShow] = useState(false);
 
+
+
+  const moustEnter = () => {
+    setShow(true);
+  };
+
+
   return (
     <Container>
-      <div>
-        <TrendCard>
-          <img
-            onMouseEnter={() => setShow(true)}
-            onMouseLeave={() => setShow(false)}
-            src={props.src}
-            alt=""
-          />
+      <Div>
+        <CardWrapper>
+          <ImgHover>
+            <Img
+              onMouseEnter={moustEnter}
+              onMouseLeave={() => setShow(false)}
+              src={props.src}
+              alt=""
+            />
+          </ImgHover>
           {show && (
             <Modal>
-              <InfoCard>
+              <Info>
                 <Title>
                   {props.title} ({props.ageRating})
                 </Title>
-                <AgeRating>{props.avgRating}%</AgeRating>
-                <div>
+                <AvgRating>{props.avgRating}%</AvgRating>
+                <Popular>
                   <AiFillHeart style={{ color: "red" }} />#{props.popularity}{" "}
                   Most Popular
-                </div>
-                <div>
+                </Popular>
+                <Highest>
                   <AiFillStar style={{ color: "yellow" }} />#{props.rating}{" "}
                   Highest Rated
-                </div>
-              </InfoCard>
-              Description
-              <TrendDescripion>{props.description}</TrendDescripion>
+                </Highest>
+              </Info>
+
+              <Description>{props.description}</Description>
             </Modal>
           )}
-        </TrendCard>
-      </div>
+        </CardWrapper>
+      </Div>
     </Container>
   );
 };
