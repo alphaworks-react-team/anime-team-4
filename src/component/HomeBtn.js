@@ -1,6 +1,8 @@
 import React from 'react'
 import styled from 'styled-components'
 import {AiOutlineHome} from 'react-icons/ai'
+import { BrowserRouter as Link } from "react-router-dom";
+import { useHistory } from "react-router";
 
 const HomeButton = styled.button`
 display: flex;
@@ -13,9 +15,11 @@ border: none;
 `
 
 const HomeBtn = () => {
+
+  const history = useHistory();
   return (
     <div>
-      <HomeButton><AiOutlineHome/></HomeButton>
+      <HomeButton onClick={()=> history.push('/')}><AiOutlineHome/></HomeButton>
     </div>
   )
 }
