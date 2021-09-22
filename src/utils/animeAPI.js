@@ -5,7 +5,7 @@ const utils = {
     return new Promise(async (resolve, reject) => {
       try {
         const request = await axios.get(
-          "https://kitsu.io/api/edge/trending/anime"
+          "https://kitsu.io/api/edge/trending/anime?[limit]=100&page[offset]=0"
         );
         resolve(request.data.data);
       } catch (err) {
@@ -30,20 +30,24 @@ const utils = {
     return new Promise(async (resolve, reject) => {
       try {
         const request = await axios.get(
-          `https://kitsu.io/api/edge/categories/`
+          `https://kitsu.io/api/edge/categories?page[limit]=229`
         );
-        resolve(request.data.data);
+        const allCategoryArr = request.data.data;
+        const mainCategory = allCategoryArr.filter(category => {
+          return category.attributes.childCount > 3;
+        })
+        resolve(mainCategory);
       } catch (err) {
         reject(err);
       }
     });
   },
 
-  ItemsInCategory: (id) => {
+  ItemsInCategory: (id, offset) => {
     return new Promise(async (resolve, reject) => {
       try {
         const request = await axios.get(
-          `https://kitsu.io/api/edge/categories/${id}/anime`
+          `https://kitsu.io/api/edge/categories/${id}/anime?page[limit]=10&page[offset]=${offset}`
         );
         resolve(request.data.data);
       } catch (err) {

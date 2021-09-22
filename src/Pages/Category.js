@@ -1,9 +1,10 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useCallback, useRef } from "react";
 import utils from "../utils/animeAPI.js";
 import { useParams } from "react-router-dom";
 import styled from "styled-components";
 import { AiFillHeart } from "react-icons/ai";
 import { AiFillStar } from "react-icons/ai";
+import ReactLoading from "react-loading";
 
 const Container = styled.div`
   width: 90vw;
@@ -17,8 +18,6 @@ const CategoryCards = styled.div`
   flex-flow: row;
   margin-bottom: 1rem;
 `;
-
-
 
 const InfoCard = styled.div`
   padding: 1rem;
@@ -55,15 +54,44 @@ const Description = styled.div`
   font-size: 20px;
 `;
 
-
 const Category = () => {
   const [category, setCategory] = useState([]);
+  const [loading, setLoading] = useState(false);
+  const [offset, setOffset] = useState(0);
   const { id } = useParams();
+  const loader = useRef(null);
+
   useEffect(() => {
-    utils.ItemsInCategory(id).then((res) => {
+    utils.ItemsInCategory(id, offset).then((res) => {
       setCategory(res);
     });
   }, []);
+
+  useEffect(() => {
+    setLoading(true);
+    setTimeout(() => {
+      utils.ItemsInCategory(id, offset).then((res) => {
+        setCategory([...category, ...res]);
+      });
+    }, 1000);
+  }, [offset]);
+
+  const handleObserver = useCallback(async (entries) => {
+    const target = await entries[0];
+    if (target.isIntersecting) {
+      setOffset((offset) => offset + 10);
+    }
+  }, []);
+
+  useEffect(() => {
+    const option = {
+      root: null,
+      rootMargin: "20px",
+      threshold: 0,
+    };
+    const observer = new IntersectionObserver(handleObserver, option);
+    if (loader.current) observer.observe(loader.current);
+  }, [handleObserver]);
 
   return (
     <Container>
@@ -87,6 +115,23 @@ const Category = () => {
           </InfoCard>
         </CategoryCards>
       ))}
+      <div
+        style={{
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+        }}
+      >
+        {loading && (
+          <ReactLoading
+            type={"cylon"}
+            color={"black"}
+            height={"10%"}
+            width={"20%"}
+          />
+        )}
+      </div>
+      <div ref={loader} />
     </Container>
   );
 };
