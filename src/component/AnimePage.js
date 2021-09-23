@@ -51,11 +51,18 @@ const InfoCard = styled.div``;
 const AnimePage = () => {
   const params = useParams();
   const [anime, setAnime] = useState([]);
+  const [category, setCategory] = useState([]);
+  const [genres, setGenres] = useState([]);
 
   const getAnime = async () => {
     const fetchAnime = await utils.AnimeByID(params.id);
     setAnime(fetchAnime);
+    const fetchCategory = await utils.getAnimeCategoriesById(params.id);
+    setCategory(fetchCategory);
+    const fetchGenres = await utils.getAnimeGenresById(params.id);
+    setGenres(fetchGenres);
   };
+
 
   useEffect(() => {
     getAnime();

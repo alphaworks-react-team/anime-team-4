@@ -8,7 +8,7 @@ const Container = styled.div`
   flex-flow: row;
   width: 280px;
   border-radius: 5px;
-  margin: 10px;
+  // margin: 10px;
   align-items: center;
   // justify-content: space-around;
 `;
@@ -22,20 +22,21 @@ const CardWrapper = styled.div`
   display: flex;
   width: 280px;
   flex-flow: wrap;
-
+  
   justify-content: center;
   align-items: center;
 
-  margin-top: 2rem;
-  margin-bottom: 2.5rem;
-  
+ 
 `;
 
 const Description = styled.div`
-  width: 280px;
-  height: 270px;
+  
   padding: 10px;
   overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  
+
   
 `;
 
@@ -43,9 +44,11 @@ const Modal = styled.div`
   background-color: white;
   position: absolute;
   border-radius: 5px;
-  transform: translate(310px);
+  transform: translate(280px);
   background: rgb(29, 53, 87);
   color: rgb(237, 246, 249, 0.9);
+  max-width: 260px;
+  
 `;
 
 const Info = styled.div`
@@ -58,7 +61,7 @@ const Info = styled.div`
 const Title = styled.div`
   font-weight: bold;
   font-size:20px;
-  width: 280px;
+  
 `;
 const AvgRating = styled.div`
   color: green;
@@ -70,7 +73,9 @@ const AvgRating = styled.div`
 
 const Img = styled.img`
   border-radius: 5px;
-  width: 280px;
+  width: 240px;
+  
+  object-fit:contain;
 `;
 
 const A = styled.a`

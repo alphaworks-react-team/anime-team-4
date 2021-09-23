@@ -98,7 +98,7 @@ const Category = () => {
   const handleObserver = useCallback(async (entries) => {
     const target = await entries[0];
     if (target.isIntersecting) {
-      setOffset((offset) => offset + 10);
+      setOffset((offset) => offset + 17);
     }
   }, []);
 
@@ -117,7 +117,7 @@ const Category = () => {
       {category.map((item, index) => (
         <Wrapper>
           <CategoryCards key={index}>
-            <A href={`/anime/${id}`}>
+            <A>
             <img src={item.attributes.posterImage.small} alt='' />
             </A>
             <InfoCard>
