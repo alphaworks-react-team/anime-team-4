@@ -10,6 +10,7 @@ const Div = styled.div`
   justify-content: center;
 `;
 
+
 const TrendingContainer = (props) => {
   return (
     <Div>

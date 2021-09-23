@@ -72,7 +72,7 @@ const utils = {
   getAnimeGenresById: (id) => {
     return new Promise(async (resolve, reject) => {
       try {
-        const request = await await axios.get(`
+        const request = await axios.get(`
         https://kitsu.io/api/edge/anime/${id}/genres/?page[limit]=20
         `);
         resolve(request.data.data);
@@ -84,7 +84,7 @@ const utils = {
   getAnimeCategoriesById: (id) => {
     return new Promise(async (resolve, reject) => {
       try {
-        const request = await await axios.get(`
+        const request = await axios.get(`
         https://kitsu.io/api/edge/anime/${id}/categories/?page[limit]=20`);
         resolve(request.data.data);
       } catch (err) {
@@ -93,5 +93,6 @@ const utils = {
     });
   },
 };
+// hello
 
 export default utils;
