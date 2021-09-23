@@ -26,19 +26,29 @@ const Wrapper = styled.div`
   background-color: rgb(237, 246, 249, 0.9);
 `;
 
-const PosterCard = styled.div``;
+const PosterCard = styled.div`
 
-const PosterImage = styled.img`
-  top: 30vh;
-  position: sticky;
-  z-index: 10;
-  transform: translate(0px, -100px);
 `;
 
-const CategoryCard = styled.div``;
+const PosterImage = styled.img`
+  top: 100px;
+  position: sticky;
+  transform: translate(0px, -90px);
+
+  border-radius: 5px;
+`;
+
+const CategoryCard = styled.div`
+  max-width: 100%;
+  display: flex;
+  flex-flow: row wrap;
+  top: 40vh;
+  position: sticky;
+
+  transform: translate(0px, -70px);
+`;
 
 const TitleSection = styled.div`
-  width: 30vw;
   display: flex;
   flex-flow: column wrap;
   padding: 1rem;
@@ -87,15 +97,18 @@ const OverallRating = styled.div``;
 
 const InfoSection = styled.div`
   display: flex;
-  justify-content: center;
-
-  border: solid black;
+  flex-flow: column;
 `;
 
-const InfoCard = styled.div``;
+const InfoCard = styled.div`
+  margin-bottom: 1rem;
+`;
 
 const GenreCard = styled.div`
-
+`
+const GenreBox=styled.div`
+background-color: lightgray;
+margin:0.1rem;
 `
 
 const AnimePage = () => {
@@ -132,28 +145,11 @@ const AnimePage = () => {
           <AnimeImage src={anime.attributes.coverImage.large} />
           <Wrapper>
             <PosterCard>
-              <PosterImage src={anime.attributes.posterImage.small} />
+                <PosterImage src={anime.attributes.posterImage.small} />
               <CategoryCard>
-                {category[0]?.attributes.title}
-                {category[1]?.attributes.title}
-                {category[2]?.attributes.title}
-                {category[3]?.attributes.title}
-                {category[4]?.attributes.title}
-                {category[5]?.attributes.title}
-                {category[6]?.attributes.title}
-                {category[7]?.attributes.title}
-                {category[8]?.attributes.title}
-                {category[9]?.attributes.title}
-                {category[10]?.attributes.title}
-                {category[11]?.attributes.title}
-                {category[12]?.attributes.title}
-                {category[13]?.attributes.title}
-                {category[14]?.attributes.title}
-                {category[15]?.attributes.title}
-                {category[16]?.attributes.title}
-                {category[17]?.attributes.title}
-                {category[18]?.attributes.title}
-                {category[19]?.attributes.title}
+                {category.map((item, index) => (
+                  <GenreBox key={index}>{item.attributes.title}</GenreBox>
+                ))}
               </CategoryCard>
             </PosterCard>
             <TitleSection>
@@ -189,16 +185,12 @@ const AnimePage = () => {
                 <div>Age Rating {anime.attributes.ageRating}</div>
                 <div>Status {anime.attributes.status}</div>
                 <div>Episode Length {anime.attributes.episodeLength} min</div>
-                <GenreCard>
-                  {genres[0]?.attributes.name}
-                  {genres[1]?.attributes.name}
-                  {genres[2]?.attributes.name}
-                  {genres[3]?.attributes.name}
-                  {genres[4]?.attributes.name}
-                  {genres[5]?.attributes.name}
-                  {genres[6]?.attributes.name}
-                </GenreCard>
               </InfoCard>
+              <GenreCard>
+                {genres.map((item, index) => (
+                  <GenreBox key={index}>{item.attributes.name}</GenreBox>
+                ))}
+              </GenreCard>
             </InfoSection>
           </Wrapper>
         </Container>
