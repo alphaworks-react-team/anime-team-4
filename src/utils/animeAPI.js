@@ -68,6 +68,30 @@ const utils = {
       }
     });
   },
+
+  getAnimeGenresById: (id) => {
+    return new Promise(async (resolve, reject) => {
+      try {
+        const request = await await axios.get(`
+        https://kitsu.io/api/edge/anime/${id}/genres/?page[limit]=20
+        `);
+        resolve(request.data.data);
+      } catch (err) {
+        reject(err);
+      }
+    });
+  },
+  getAnimeCategoriesById: (id) => {
+    return new Promise(async (resolve, reject) => {
+      try {
+        const request = await await axios.get(`
+        https://kitsu.io/api/edge/anime/${id}/categories/?page[limit]=20`);
+        resolve(request.data.data);
+      } catch (err) {
+        reject(err);
+      }
+    });
+  },
 };
 
 export default utils;
