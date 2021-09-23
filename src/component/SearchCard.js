@@ -33,6 +33,7 @@ const InfoCard = styled.div`
   flex-flow: column;
   justify-content: space-around;
 `;
+
 const Title = styled.h1`
   font-weight: bold;
   font-size: 40px;
