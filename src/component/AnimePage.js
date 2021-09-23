@@ -36,6 +36,7 @@ const PosterImage = styled.img`
 `;
 
 const TitleSection = styled.div`
+  width: 30vw;
   display: flex;
   flex-flow: column wrap;
   padding: 1rem;
@@ -86,14 +87,13 @@ const OverallRating = styled.div``;
 
 const InfoSection = styled.div`
 display: flex;
-flex-flow: column;
+justify-content: center;
 
 border: solid black;
 `;
 
 const InfoCard = styled.div`
-  display: flex;
-  flex-flow: column;
+
 `;
 
 const AnimePage = () => {
@@ -153,12 +153,11 @@ const AnimePage = () => {
             <InfoSection>
               <InfoCard>
                 Anime Details
-                <div>{anime.attributes.subtype}</div>
-                <div>{anime.attributes.startDate}</div>
-                <div>{anime.attributes.ageRating}</div>
-                <div>{anime.attributes.status}</div>
-                <div>{anime.attributes.episodeLength} min</div>
-                <div>{anime.attributes.showType}</div>
+                <div>Type {anime.attributes.subtype}</div>
+                <div>Aired {anime.attributes.startDate}</div>
+                <div>Age Rating {anime.attributes.ageRating}</div>
+                <div>Status {anime.attributes.status}</div>
+                <div>Episode Length {anime.attributes.episodeLength} min</div>
               </InfoCard>
             </InfoSection>
           </Wrapper>
