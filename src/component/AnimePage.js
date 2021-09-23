@@ -10,12 +10,14 @@ const Container = styled.div`
   flex-flow: column;
   justify-content: center;
   align-items: center;
+  
 `;
 
 const AnimeImage = styled.img`
   max-width: 100%;
   height: auto;
   opacity: 0.7;
+  
 `;
 
 const Wrapper = styled.div`
@@ -31,6 +33,7 @@ const PosterCard = styled.div``;
 const PosterImage = styled.img`
   top: 30vh;
   position: sticky;
+  
   z-index: 10;
   transform: translate(0px, -100px);
 `;
@@ -39,6 +42,7 @@ const TitleSection = styled.div`
   display: flex;
   flex-flow: column wrap;
   padding: 1rem;
+  
 `;
 
 const TitleCard = styled.div`

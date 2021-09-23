@@ -3,7 +3,7 @@ import styled from 'styled-components';
 
 
 const Body = styled.div`
-  height: 7rem;
+  height: 5rem;
   background-color: rgb(69, 123, 157);
   display: flex;
   justify-content: space-evenly;

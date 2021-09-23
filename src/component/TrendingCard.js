@@ -74,7 +74,7 @@ const AvgRating = styled.div`
 const Img = styled.img`
   border-radius: 5px;
   width: 240px;
-  
+  margin-top:15px;
   object-fit:contain;
 `;
 
