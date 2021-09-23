@@ -45,6 +45,7 @@ const Title = styled.h1`
 const AverageRating = styled.div`
   color: green;
   font-size: 25px;
+  font-weight: bold;
 `;
 
 const PopRank = styled.div`
@@ -52,6 +53,7 @@ const PopRank = styled.div`
 
   display: flex;
   align-items: center;
+  font-weight: bold;
 `;
 
 const OverallRank = styled.div`
@@ -59,6 +61,7 @@ const OverallRank = styled.div`
 
   display: flex;
   align-items: center;
+  font-weight: bold;
 `;
 
 const Description = styled.div`

@@ -17,7 +17,7 @@ const Button = styled.button`
 
   font-size: 20px;
   background-color: rgb(237, 246, 249, 0.9);
-  color: gray;
+  color: rgb(29, 53, 87);
 
   display: flex;
   align-items: center;

@@ -5,7 +5,7 @@ import TrendingCard from './TrendingCard.js'
 const Div = styled.div`
   width: 60vw;
   display: flex;
-
+  background-color: rgb(237, 246, 249, 0.9);
   flex-flow: row wrap;
   justify-content: center;
 `;
