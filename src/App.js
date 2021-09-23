@@ -13,7 +13,8 @@ import Category from "./Pages/Category";
 import DropDown from "./component/DropDown";
 import HomeBtn from "./component/HomeBtn.js"
 import TrendingContainer from './component/TrendingContainer';
-import AnimePage from './Pages/AnimePage.js'
+import AnimePage from "./component/AnimePage";
+import Anime from './Pages/Anime.js'
 
 function App() {
 
@@ -72,14 +73,14 @@ function App() {
         <Switch>
           <Route exact path="/">
             <Home>
-              <TrendingContainer trending={trending} />
+              <TrendingContainer trending={trending}/>
             </Home>
           </Route>
           <Route path="/category/:id">
             <Category />
           </Route>
           <Route path="/anime/:id">
-            <AnimePage />
+            <Anime><AnimePage /></Anime>
           </Route>
           <Route path="/search">
             <Search>

@@ -10,10 +10,8 @@ const Container = styled.div`
   border-radius: 5px;
   margin: 10px;
   align-items: center;
-
   // justify-content: space-around;
 `;
-
 
 const Div = styled.div`
   
@@ -30,23 +28,27 @@ const CardWrapper = styled.div`
 
   margin-top: 2rem;
   margin-bottom: 2.5rem;
+  
 `;
+
 const Description = styled.div`
   width: 280px;
   height: 270px;
   padding: 10px;
   overflow: hidden;
+  
 `;
 
 const Modal = styled.div`
   background-color: white;
   position: absolute;
   border-radius: 5px;
-  transform: translate(310px)
+  transform: translate(310px);
+  background: rgb(29, 53, 87);
+  color: rgb(237, 246, 249, 0.9);
 `;
 
 const Info = styled.div`
-  
   display: flex;
   flex-flow: column;
   justify-content: space-between;
@@ -55,11 +57,12 @@ const Info = styled.div`
 
 const Title = styled.div`
   font-weight: bold;
-  font-size:20px
+  font-size:20px;
   width: 280px;
 `;
 const AvgRating = styled.div`
   color: green;
+  font-weight: bold;
   font-size: 15px;
   padding-top: 10px;
   padding-bottom: 10px;
@@ -75,11 +78,13 @@ const A = styled.a`
 `;
 
 const Popular = styled.div`
-
+font-weight: bold;
 `
 
 
-const Highest = styled.div``;
+const Highest = styled.div`
+font-weight: bold;
+`;
 
 
 
@@ -119,7 +124,7 @@ const TrendingCard = (props) => {
                   Most Popular
                 </Popular>
                 <Highest>
-                  <AiFillStar style={{ color: "yellow" }} />#{props.rating}{" "}
+                  <AiFillStar style={{ color: "yellow"}} />#{props.rating}{" "}
                   Highest Rated
                 </Highest>
               </Info>
