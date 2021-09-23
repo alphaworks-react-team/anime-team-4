@@ -74,7 +74,7 @@ const Img = styled.img`
 `;
 
 const A = styled.a`
-  
+
 `;
 
 const Popular = styled.div`
@@ -95,7 +95,7 @@ const TrendingCard = (props) => {
 
 
 
-  const moustEnter = () => {
+  const mouseEnter = () => {
     setShow(true);
   };
 
@@ -106,7 +106,7 @@ const TrendingCard = (props) => {
         <CardWrapper>
           <A href={`/anime/${props.id}`}>
             <Img
-              onMouseEnter={moustEnter}
+              onMouseEnter={mouseEnter}
               onMouseLeave={() => setShow(false)}
               src={props.src}
               alt=""
