@@ -36,6 +36,7 @@ const Menu = styled.div`
   letter-spacing: 0.05rem;
   border-radius: 5px;
   background: rgb(29, 53, 87);
+  z-index: 1;
 
   a:visited,
   a:link,
