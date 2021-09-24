@@ -34,7 +34,15 @@ const utils = {
         );
         const allCategoryArr = request.data.data;
         const mainCategory = allCategoryArr.filter((category) => {
-          return category.attributes.childCount > 3;
+          return (
+            category.attributes.childCount > 3 &&
+            category.id !== "223" &&
+            category.id !== "241" &&
+            category.id !== "228" &&
+            category.id !== "231" &&
+            category.id !== "231" &&
+            category.id !== "230"
+          );
         });
         resolve(mainCategory);
       } catch (err) {
