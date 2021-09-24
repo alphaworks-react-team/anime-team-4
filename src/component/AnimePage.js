@@ -10,6 +10,8 @@ const Container = styled.div`
   flex-flow: column;
   justify-content: center;
   align-items: center;
+
+
 `;
 
 const AnimeImage = styled.img`
@@ -24,6 +26,13 @@ const Wrapper = styled.div`
   padding: 1rem;
 
   background-color: rgb(237, 246, 249, 0.9);
+
+  @media (max-width: 950px) {
+    flex-flow: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+  }
 `;
 
 const PosterCard = styled.div`
@@ -34,8 +43,12 @@ const PosterImage = styled.img`
   top: 100px;
   position: sticky;
   transform: translate(0px, -90px);
-
   border-radius: 5px;
+
+  @media (max-width: 950px) {
+    transform: translate(0);
+  }
+
 `;
 
 const CategoryCard = styled.div`
@@ -46,12 +59,17 @@ const CategoryCard = styled.div`
   position: sticky;
 
   transform: translate(0px, -70px);
+
 `;
 
 const TitleSection = styled.div`
   display: flex;
   flex-flow: column wrap;
   padding: 1rem;
+
+  @media (max-width: 950px) {
+  padding:2rem;;
+  }
 `;
 
 const TitleCard = styled.div`
@@ -105,11 +123,16 @@ const InfoCard = styled.div`
 `;
 
 const GenreCard = styled.div`
-`
-const GenreBox=styled.div`
-background-color: lightgray;
-margin:0.1rem;
-`
+`;
+
+const GenreBox = styled.div`
+  background-color: lightgray;
+  margin: 0.1rem;
+
+  @media (max-width: 950px) {
+    display: none;
+  }
+`;
 
 const AnimePage = () => {
   const params = useParams();

@@ -17,6 +17,9 @@ const HomeButton = styled.button`
   :hover {
     color: rgb(230, 57, 70);
   }
+  @media (max-width: 575px) {
+    font-size: 30px;
+  }
 `;
 
 const HomeBtn = () => {

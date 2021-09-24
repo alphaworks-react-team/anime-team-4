@@ -36,8 +36,6 @@ const Description = styled.div`
   text-overflow: ellipsis;
   white-space: nowrap;
   
-
-  
 `;
 
 const Modal = styled.div`
@@ -48,7 +46,10 @@ const Modal = styled.div`
   background: rgb(29, 53, 87);
   color: rgb(237, 246, 249, 0.9);
   max-width: 260px;
-  
+
+  @media (max-width: 1100px) {
+    display: none;
+  }
 `;
 
 const Info = styled.div`

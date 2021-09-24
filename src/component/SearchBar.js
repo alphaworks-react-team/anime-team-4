@@ -30,6 +30,11 @@ const Button = styled.button`
     cursor: pointer;
     color: rgb(230, 57, 70);
   }
+  @media (max-width: 575px) {
+    width: 30px;
+    height: 30px;
+    font-size:15px;
+  }
 `;
 
 const Search = styled.input`
@@ -41,6 +46,18 @@ const Search = styled.input`
   outline: none;
   font-size: 20px;
   background-color: rgb(237, 246, 249, 0.9);
+
+  @media (max-width: 575px) {
+    width: 300px;
+    height: 30px;
+    font-size: 15px;
+  }
+
+  @media (max-width: 375px) {
+    width: 250px;
+    height: 30px;
+    font-size: 13px;
+  }
 `;
 
 const SearchBar = (props) => {

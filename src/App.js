@@ -34,7 +34,6 @@ function App() {
   }, []);
   
 
-
   useEffect(() => {
     utils
       .CategoryAPI()
