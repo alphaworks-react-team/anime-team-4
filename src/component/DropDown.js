@@ -20,12 +20,24 @@ const MenuBtn = styled.button`
   :hover {
     color: rgb(230, 57, 70);
   }
+
+  @media (max-width: 575px) {
+    font-size: 30px;
+  }
 `;
 
-const MenuPosition=styled.div`
-display: flex;
-justify-content: center;
-`
+const MenuPosition = styled.div`
+  display: flex;
+  justify-content: flex-start;
+
+  @media (max-width: 1805px) {
+    justify-content: center;
+  }
+
+  @media (max-width: 800px) {
+    justify-content: flex-end;
+  }
+`;
 
 const Menu = styled.div`
   text-align: center;

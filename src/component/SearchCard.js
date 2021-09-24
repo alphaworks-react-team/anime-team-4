@@ -24,6 +24,9 @@ const SearchCards = styled.div`
   display: flex;
   flex-flow: row;
   border-radius: 5px;
+  @media (max-width: 890px) {
+    flex-flow: column;
+  }
 `;
 
 const InfoCard = styled.div`
@@ -37,12 +40,18 @@ const InfoCard = styled.div`
 const Title = styled.h1`
   font-weight: bold;
   font-size: 40px;
+  @media (max-width: 890px) {
+    font-size: 20px;
+  }
 `;
 
 const AverageRating = styled.div`
   color: green;
   font-size: 25px;
   font-weight: bold;
+  @media (max-width: 890px) {
+    font-size: 15px;
+  }
 `;
 
 const PopRank = styled.div`
@@ -51,6 +60,9 @@ const PopRank = styled.div`
   display: flex;
   align-items: center;
   font-weight: bold;
+  @media (max-width: 890px) {
+    font-size: 15px;
+  }
 `;
 
 const OverallRank = styled.div`
@@ -58,13 +70,26 @@ const OverallRank = styled.div`
 
   display: flex;
   align-items: center;
-    font-weight: bold;
+  font-weight: bold;
+  @media (max-width: 890px) {
+    font-size: 15px;
+  }
 `;
 
 const Description = styled.div`
   height: 150px;
   font-size: 20px;
   overflow: hidden;
+  @media (max-width: 890px) {
+    font-size: 15px;
+  }
+`;
+
+const A = styled.a`
+  @media (max-width: 890px) {
+    display: flex;
+    justify-content: center;
+  }
 `;
 
 const SearchCard = (props) => {
@@ -73,7 +98,9 @@ const SearchCard = (props) => {
       {props.search.map((item, index) => (
         <Wrapper>
           <SearchCards key={index}>
-            <img src={item.attributes.posterImage.small} />
+            <A>
+              <img src={item.attributes.posterImage.small} />
+            </A>
             <InfoCard>
               <Title>
                 {item.attributes.canonicalTitle} ({item.attributes.ageRating})
